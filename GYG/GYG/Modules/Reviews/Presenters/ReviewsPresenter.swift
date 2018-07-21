@@ -71,7 +71,7 @@ class ReviewsPresenter {
         loadReviews(reset: true)
     }
     
-    private func resetData() {
+    func resetData() {
         pagination.page = 0
         reviews = []
     }

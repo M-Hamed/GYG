@@ -63,6 +63,7 @@ class ReviewsViewController: UIViewController {
     }
     
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
+        presenter.resetData()
         presenter.loadReviews(reset: true)
     }
 }
