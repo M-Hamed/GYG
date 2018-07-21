@@ -44,13 +44,14 @@ class ReviewsPresenter {
     
     func loadReviews(reset: Bool) {
         guard !isLoading else { return }
-        if reset {
-            resetData()
-        }
         
-        ReviewsInteractor.getReviews(pagination: pagination, onSuccess: {  [weak self]  reviewsData in
+        ReviewsInteractor.getReviews(pagination: self.pagination, onSuccess: {  [weak self]  reviewsData in
             guard let `self` = self else { return }
             self.isLoading = false
+            
+            if reset {
+                self.resetData()
+            }
             self.pagination.increment()
             self.reviewsData.data += reviewsData.data
             self.loadedReviews?(reviewsData)

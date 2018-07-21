@@ -16,13 +16,12 @@ public struct ReviewsData: Decodable {
 public struct Review: Decodable {
     var review_id: Int
     var rating: String
-    var title: String
+    var title: String?
     var message: String
     var author: String
     var foreignLanguage: Bool
     var date: String
     var languageCode: String
-    var traveler_type: String
     var reviewerName: String
     var reviewerCountry: String
 }

@@ -14,13 +14,13 @@ class ReviewsInteractor {
                     onSuccess: @escaping (ReviewsData) -> (),
                     onFailure: @escaping (Error) -> ()) {
         
-        let pagination = PaginationData()
         ReviewsService().get(
             tour: "berlin-l17/tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776/reviews.json",
             pagination: pagination,
             onSuccess: { reviewsData in
                 onSuccess(reviewsData)
         }) { error in
+            onFailure(error)
             print(error)
         }
         

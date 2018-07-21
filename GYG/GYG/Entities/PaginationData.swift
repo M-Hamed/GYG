@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 public class PaginationData {
-    var page = 0
+    var page: Int = 0
     var count = 10
     var rating = 0
     var sortBy = "date_of_review"
@@ -22,16 +22,16 @@ public class PaginationData {
     
     func asDictionary() -> [String: Any] {
         let params: Parameters =
-            ["count" : String(describing: count),
-             "page" : String(describing: page),
-             "rating" : String(describing: rating),
+            ["count" : count,
+             "page" : page,
+             "rating" : rating,
              "sortBy" : sortBy,
              "direction" : direction]
         return params
     }
     
     func increment() {
-        page += 1
+        self.page = page + 1
     }
     
 }

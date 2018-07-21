@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.7.2)
   - Cosmos (16.0.0)
+  - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 16.0)
+  - UIScrollView-InfiniteScroll (~> 1.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Cosmos
+    - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Cosmos: 7bcee0fa858a9355a214f2a181be5dffcee42c81
+  UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: cce6897f0c3b29e1943abcf8958c24e04345025e
+PODFILE CHECKSUM: b05642d8684b1606cd2a1802bd350decdc8c7f2b
 
 COCOAPODS: 1.5.3

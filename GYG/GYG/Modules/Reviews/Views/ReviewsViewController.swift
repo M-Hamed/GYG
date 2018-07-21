@@ -27,12 +27,14 @@ class ReviewsViewController: UIViewController {
     
     
     func setupPresenter() {
+        
         presenter.loadedReviews = { [weak self] reviewData in
-            self?.refreshControl.endRefreshing()
+            self?.stopLoading()
             self?.tableView.reloadData()
         }
         
         presenter.failedToLoad = { [weak self] error in
+            self?.stopLoading()
             Activity.showAlert(self, message: error.localizedDescription)
         }
         
@@ -44,6 +46,11 @@ class ReviewsViewController: UIViewController {
             }
         }
         presenter.loadReviews(reset: false)
+    }
+    
+    func stopLoading() {
+        refreshControl.endRefreshing()
+        tableView.finishInfiniteScroll()
     }
     
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
@@ -65,6 +72,13 @@ extension ReviewsViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         registerCells()
         tableView.addSubview(refreshControl)
+        
+        tableView.infiniteScrollTriggerOffset = 500
+        
+        tableView.addInfiniteScroll { (tableView) -> Void in
+            self.presenter.loadReviews(reset: false)
+            print("infinte ")
+        }
     }
     
     func registerCells() {

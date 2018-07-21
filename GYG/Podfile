@@ -8,5 +8,6 @@ target 'GYG' do
   # Pods for GYG
 pod 'Alamofire'
 pod 'Cosmos', '~> 16.0'
+pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
 
 end
