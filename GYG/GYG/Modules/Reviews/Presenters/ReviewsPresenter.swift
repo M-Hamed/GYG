@@ -38,7 +38,7 @@ class ReviewsPresenter {
 
     func loadReviews(reset: Bool) {
         guard !isLoading else { return }
-        if reviews.isEmpty {// Get Offline Reviews 
+        if reviews.isEmpty {// Get Offline Reviews
            reviews = ReviewsInteractor.getOfflineReviews(pagination: pagination)
             if !reviews.isEmpty {
                 Activity.stopAnimating()
@@ -52,6 +52,9 @@ class ReviewsPresenter {
             
             if reset {
                 self.resetData()
+            }
+            if self.pagination.isFirstPage {
+                self.reviews = []
             }
             self.pagination.increment()
             self.reviews += reviews
