@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        ThemeManager.setupTheme()
         self.window?.rootViewController = UINavigationController(rootViewController: ReviewsViewController())
         self.window?.makeKeyAndVisible()
         return true

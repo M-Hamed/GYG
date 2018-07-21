@@ -25,9 +25,7 @@ class ReviewsViewController: UIViewController {
         setupPresenter()
     }
     
-    
     func setupPresenter() {
-        
         presenter.loadedReviews = { [weak self] reviewData in
             self?.stopLoading()
             self?.tableView.reloadData()
@@ -39,12 +37,12 @@ class ReviewsViewController: UIViewController {
         }
         
         presenter.updateLoadingStatus = { loading in
-            if loading {
-                Activity.startAnimating()
-            } else {
+            if !loading {
                 Activity.stopAnimating()
             }
         }
+        
+        Activity.startAnimating()
         presenter.loadReviews(reset: false)
     }
     
@@ -61,7 +59,7 @@ class ReviewsViewController: UIViewController {
 extension ReviewsViewController {
     
     var cells: [UITableViewCell.Type] {
-        return [ReviewTableViewCell.self]
+        return [ReviewTableViewCell.self, FilterTableViewCell.self]
     }
     
     func setupTableView() {
@@ -92,17 +90,32 @@ extension ReviewsViewController {
 
 extension ReviewsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfCells
+        if section == 0 {
+            return 1
+        } else {
+            return presenter.numberOfCells
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewTableViewCell.self)) as! ReviewTableViewCell
-        cell.configure(review: presenter.reviewAtIndex(at: indexPath))
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FilterTableViewCell.self)) as! FilterTableViewCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewTableViewCell.self)) as! ReviewTableViewCell
+            cell.configure(review: presenter.reviewAtIndex(at: indexPath))
+            return cell
+        }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            Activity.startAnimating()
+            presenter.toggleFilter()
+        }
+    }
 }

@@ -12,7 +12,7 @@ import UIKit
 
 extension UIColor {
     static var primary: UIColor {
-        return UIColor(hex: "#052D5D")
+        return UIColor(hex: "#ff5c00")
     }
 }
 

@@ -27,6 +27,9 @@
 		057F34CB2103656800961C8C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34CA2103656800961C8C /* Activity.swift */; };
 		057F34CE2103659500961C8C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34CD2103659500961C8C /* UIView.swift */; };
 		057F34D0210365B100961C8C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34CF210365B100961C8C /* UIColor.swift */; };
+		057F34DA21037A2800961C8C /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34D921037A2800961C8C /* ThemeManager.swift */; };
+		057F34E12103803B00961C8C /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34DF2103803B00961C8C /* FilterTableViewCell.swift */; };
+		057F34E22103803B00961C8C /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057F34E02103803B00961C8C /* FilterTableViewCell.xib */; };
 		B27EC48D1B411EEF6BB7827C /* Pods_GYG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7176C84D371CE0927BA240BD /* Pods_GYG.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,9 @@
 		057F34CD2103659500961C8C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		057F34CF210365B100961C8C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		057F34D5210373CC00961C8C /* GYG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GYG-Bridging-Header.h"; sourceTree = "<group>"; };
+		057F34D921037A2800961C8C /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		057F34DF2103803B00961C8C /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		057F34E02103803B00961C8C /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 		478B78210D902BDC231795EF /* Pods-GYG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GYG/Pods-GYG.debug.xcconfig"; sourceTree = "<group>"; };
 		7176C84D371CE0927BA240BD /* Pods_GYG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GYG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7443936C5C05FCBE63F004AF /* Pods-GYG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYG.release.xcconfig"; path = "Pods/Target Support Files/Pods-GYG/Pods-GYG.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +215,8 @@
 			children = (
 				057F34C121035D5A00961C8C /* ReviewTableViewCell.swift */,
 				057F34C221035D5A00961C8C /* ReviewTableViewCell.xib */,
+				057F34DF2103803B00961C8C /* FilterTableViewCell.swift */,
+				057F34E02103803B00961C8C /* FilterTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				057F34CA2103656800961C8C /* Activity.swift */,
+				057F34D921037A2800961C8C /* ThemeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -311,6 +320,7 @@
 				057F34A621034C0400961C8C /* ReviewsViewController.xib in Resources */,
 				057F34C421035D5A00961C8C /* ReviewTableViewCell.xib in Resources */,
 				057F349A21034A2300961C8C /* LaunchScreen.storyboard in Resources */,
+				057F34E22103803B00961C8C /* FilterTableViewCell.xib in Resources */,
 				057F349721034A2300961C8C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,12 +355,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GYG/Pods-GYG-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/UIScrollView-InfiniteScroll/UIScrollView_InfiniteScroll.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIScrollView_InfiniteScroll.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +386,9 @@
 				057F34B121034CE600961C8C /* HURLRequestConvertible.swift in Sources */,
 				057F34AF21034CDA00961C8C /* HSessionManager.swift in Sources */,
 				057F34C621035D8200961C8C /* ReviewsInteractor.swift in Sources */,
+				057F34E12103803B00961C8C /* FilterTableViewCell.swift in Sources */,
 				057F34C321035D5A00961C8C /* ReviewTableViewCell.swift in Sources */,
+				057F34DA21037A2800961C8C /* ThemeManager.swift in Sources */,
 				057F34B521034DF500961C8C /* ReviewsRouter.swift in Sources */,
 				057F34CE2103659500961C8C /* UIView.swift in Sources */,
 				057F34C821035E2A00961C8C /* ReviewsPresenter.swift in Sources */,

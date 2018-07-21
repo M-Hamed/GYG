@@ -40,11 +40,9 @@ class ReviewsPresenter {
         reviewsData = ReviewsData(total_reviews_comments: 0, data: [])
     }
 
-    
-    
     func loadReviews(reset: Bool) {
         guard !isLoading else { return }
-        
+        isLoading = true
         ReviewsInteractor.getReviews(pagination: self.pagination, onSuccess: {  [weak self]  reviewsData in
             guard let `self` = self else { return }
             self.isLoading = false
@@ -62,8 +60,13 @@ class ReviewsPresenter {
         }
     }
     
+    func toggleFilter() {
+        pagination.toggleDirection()
+        loadReviews(reset: true)
+    }
+    
     private func resetData() {
-        pagination = PaginationData()
+        pagination.page = 0
         reviewsData = ReviewsData(total_reviews_comments: 0, data: [])
     }
 }

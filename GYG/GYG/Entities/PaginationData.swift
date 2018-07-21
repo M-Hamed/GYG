@@ -30,6 +30,14 @@ public class PaginationData {
         return params
     }
     
+    func toggleDirection() {
+        if direction == "DESC" {
+            direction = "ASC"
+        } else {
+            direction = "DESC"
+        }
+        
+    }
     func increment() {
         self.page = page + 1
     }
