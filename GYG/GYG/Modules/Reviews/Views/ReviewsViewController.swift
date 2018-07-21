@@ -23,6 +23,17 @@ class ReviewsViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupPresenter()
+        initNavBar()
+    }
+    
+    func initNavBar() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addReview))
+        navigationItem.rightBarButtonItems = [addButton]
+    }
+    
+    @objc func addReview(sender: UIBarButtonItem) {
+        let vc = CreateReviewViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupPresenter() {
