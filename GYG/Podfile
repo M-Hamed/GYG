@@ -7,6 +7,6 @@ target 'GYG' do
 
   # Pods for GYG
 pod 'Alamofire'
-pod 'NVActivityIndicatorView'
+pod 'Cosmos', '~> 16.0'
 
 end
