@@ -13,3 +13,5 @@ https://www.objc.io/issues/13-architecture/viper/
 - [x] Uses IBInspectable / IBDesignable to make it  even easier to design in Storyboard.
 - [x] Clean architecture that's embraces extendablity and maintainblty.
 - [x] Follows Git flow.
+- [x] Uses Realm For Caching.
+
