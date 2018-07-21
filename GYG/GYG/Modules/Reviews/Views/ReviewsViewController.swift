@@ -26,7 +26,7 @@ class ReviewsViewController: UIViewController {
     }
     
     func setupPresenter() {
-        presenter.loadedReviews = { [weak self] reviewData in
+        presenter.loadedReviews = { [weak self] in
             self?.stopLoading()
             self?.tableView.reloadData()
         }

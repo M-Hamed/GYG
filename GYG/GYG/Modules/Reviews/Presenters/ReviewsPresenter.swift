@@ -10,11 +10,11 @@ import Foundation
 
 class ReviewsPresenter {
     
-    fileprivate var reviewsData: ReviewsData
+    fileprivate var reviews: [Review]
     fileprivate var pagination: PaginationData
     
     var updateLoadingStatus: ((Bool)->())?
-    var loadedReviews: ((ReviewsData)->())?
+    var loadedReviews: (()->())?
     var failedToLoad: ((Error)->())?
     
     var isLoading: Bool = false {
@@ -24,26 +24,29 @@ class ReviewsPresenter {
     }
     
     var numberOfCells: Int {
-        return reviewsData.data.count
-    }
-    
-    var totalReviews: Int {
-        return reviewsData.total_reviews_comments
+        return reviews.count
     }
     
     func reviewAtIndex(at indexPath: IndexPath) -> Review {
-        return reviewsData.data[indexPath.row]
+        return reviews[indexPath.row]
     }
     
     init() {
         pagination = PaginationData()
-        reviewsData = ReviewsData(total_reviews_comments: 0, data: [])
+        reviews = []
     }
 
     func loadReviews(reset: Bool) {
         guard !isLoading else { return }
+        if reviews.isEmpty {// Get Offline Reviews 
+           reviews = ReviewsInteractor.getOfflineReviews(pagination: pagination)
+            if !reviews.isEmpty {
+                Activity.stopAnimating()
+            }
+        }
+        
         isLoading = true
-        ReviewsInteractor.getReviews(pagination: self.pagination, onSuccess: {  [weak self]  reviewsData in
+        ReviewsInteractor.getReviews(pagination: self.pagination, onSuccess: {  [weak self]  reviews in
             guard let `self` = self else { return }
             self.isLoading = false
             
@@ -51,8 +54,8 @@ class ReviewsPresenter {
                 self.resetData()
             }
             self.pagination.increment()
-            self.reviewsData.data += reviewsData.data
-            self.loadedReviews?(reviewsData)
+            self.reviews += reviews
+            self.loadedReviews?()
         }) {  [weak self]  error in
             guard let `self` = self else { return }
             self.isLoading = false
@@ -67,6 +70,6 @@ class ReviewsPresenter {
     
     private func resetData() {
         pagination.page = 0
-        reviewsData = ReviewsData(total_reviews_comments: 0, data: [])
+        reviews = []
     }
 }

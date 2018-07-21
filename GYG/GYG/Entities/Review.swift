@@ -7,21 +7,26 @@
 //
 
 import Foundation
+import RealmSwift
 
 public struct ReviewsData: Decodable {
     var total_reviews_comments =  0
     var data = [Review]()
 }
 
-public struct Review: Decodable {
-    var review_id: Int
-    var rating: String
-    var title: String?
-    var message: String
-    var author: String
-    var foreignLanguage: Bool
-    var date: String
-    var languageCode: String
-    var reviewerName: String
-    var reviewerCountry: String
+public class Review: Object, Decodable {
+    @objc dynamic var review_id: Int = 0
+    @objc dynamic var rating: String = ""
+    @objc dynamic var title: String? = ""
+    @objc dynamic var message: String = ""
+    @objc dynamic var author: String = ""
+    @objc dynamic var foreignLanguage: Bool = false
+    @objc dynamic var date: String = ""
+    @objc dynamic var languageCode: String = ""
+    @objc dynamic var reviewerName: String = ""
+    @objc dynamic var reviewerCountry: String = ""
+    
+    override public static func primaryKey() -> String? {
+        return "review_id"
+    }
 }
