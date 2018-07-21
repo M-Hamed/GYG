@@ -30,6 +30,11 @@
 		057F34DA21037A2800961C8C /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34D921037A2800961C8C /* ThemeManager.swift */; };
 		057F34E12103803B00961C8C /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34DF2103803B00961C8C /* FilterTableViewCell.swift */; };
 		057F34E22103803B00961C8C /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057F34E02103803B00961C8C /* FilterTableViewCell.xib */; };
+		057F34E621038BDD00961C8C /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34E521038BDD00961C8C /* MockService.swift */; };
+		057F34E821038C0800961C8C /* DHURLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34E721038C0800961C8C /* DHURLSessionMock.swift */; };
+		057F34EA21038DC700961C8C /* ReviewMockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 057F34E921038DC700961C8C /* ReviewMockResponse.json */; };
+		057F34EF21038E5300961C8C /* CreateReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F34ED21038E5300961C8C /* CreateReviewViewController.swift */; };
+		057F34F021038E5300961C8C /* CreateReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057F34EE21038E5300961C8C /* CreateReviewViewController.xib */; };
 		B27EC48D1B411EEF6BB7827C /* Pods_GYG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7176C84D371CE0927BA240BD /* Pods_GYG.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +65,11 @@
 		057F34D921037A2800961C8C /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		057F34DF2103803B00961C8C /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		057F34E02103803B00961C8C /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
+		057F34E521038BDD00961C8C /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		057F34E721038C0800961C8C /* DHURLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHURLSessionMock.swift; sourceTree = "<group>"; };
+		057F34E921038DC700961C8C /* ReviewMockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ReviewMockResponse.json; sourceTree = "<group>"; };
+		057F34ED21038E5300961C8C /* CreateReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReviewViewController.swift; sourceTree = "<group>"; };
+		057F34EE21038E5300961C8C /* CreateReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateReviewViewController.xib; sourceTree = "<group>"; };
 		478B78210D902BDC231795EF /* Pods-GYG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GYG/Pods-GYG.debug.xcconfig"; sourceTree = "<group>"; };
 		7176C84D371CE0927BA240BD /* Pods_GYG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GYG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7443936C5C05FCBE63F004AF /* Pods-GYG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYG.release.xcconfig"; path = "Pods/Target Support Files/Pods-GYG/Pods-GYG.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 		057F34A121034BEA00961C8C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				057F34EB21038E3300961C8C /* CreateReview */,
 				057F34A221034BF000961C8C /* Reviews */,
 			);
 			path = Modules;
@@ -171,6 +182,9 @@
 			children = (
 				057F34B421034DF500961C8C /* ReviewsRouter.swift */,
 				057F34B621034F5800961C8C /* ReviewsService.swift */,
+				057F34E521038BDD00961C8C /* MockService.swift */,
+				057F34E721038C0800961C8C /* DHURLSessionMock.swift */,
+				057F34E921038DC700961C8C /* ReviewMockResponse.json */,
 			);
 			path = Reviews;
 			sourceTree = "<group>";
@@ -237,6 +251,23 @@
 				057F34CF210365B100961C8C /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		057F34EB21038E3300961C8C /* CreateReview */ = {
+			isa = PBXGroup;
+			children = (
+				057F34EC21038E3F00961C8C /* Views */,
+			);
+			path = CreateReview;
+			sourceTree = "<group>";
+		};
+		057F34EC21038E3F00961C8C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				057F34ED21038E5300961C8C /* CreateReviewViewController.swift */,
+				057F34EE21038E5300961C8C /* CreateReviewViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3B34F52551D8A446C3506BF8 /* Frameworks */ = {
@@ -318,9 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				057F34A621034C0400961C8C /* ReviewsViewController.xib in Resources */,
+				057F34F021038E5300961C8C /* CreateReviewViewController.xib in Resources */,
 				057F34C421035D5A00961C8C /* ReviewTableViewCell.xib in Resources */,
 				057F349A21034A2300961C8C /* LaunchScreen.storyboard in Resources */,
 				057F34E22103803B00961C8C /* FilterTableViewCell.xib in Resources */,
+				057F34EA21038DC700961C8C /* ReviewMockResponse.json in Resources */,
 				057F349721034A2300961C8C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +424,9 @@
 				057F34AF21034CDA00961C8C /* HSessionManager.swift in Sources */,
 				057F34C621035D8200961C8C /* ReviewsInteractor.swift in Sources */,
 				057F34E12103803B00961C8C /* FilterTableViewCell.swift in Sources */,
+				057F34E821038C0800961C8C /* DHURLSessionMock.swift in Sources */,
+				057F34EF21038E5300961C8C /* CreateReviewViewController.swift in Sources */,
+				057F34E621038BDD00961C8C /* MockService.swift in Sources */,
 				057F34C321035D5A00961C8C /* ReviewTableViewCell.swift in Sources */,
 				057F34DA21037A2800961C8C /* ThemeManager.swift in Sources */,
 				057F34B521034DF500961C8C /* ReviewsRouter.swift in Sources */,
